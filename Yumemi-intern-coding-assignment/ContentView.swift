@@ -6,52 +6,38 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @State private var input: PersonalRecord = PersonalRecord()
+    @State private var selectedBloodType: BloodType = .a
+    @State private var birthday: Birthday = Birthday()
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+        VStack {
+            Form {
+                Section(header: Text("情報を入力")) {
+                    TextField("名前", text: $input.name)
+                
+                    TextField("年", text: $birthday.year)
+                    TextField("月", text: $birthday.month)
+                    TextField("日", text: $birthday.day)
+                    Picker("血液型", selection: $selectedBloodType) {
+                        ForEach(BloodType.allCases) { bloodType in
+                            Text(bloodType.displayName + "型")
+                        }
                     }
                 }
             }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+            //Text("選択された血液型: \(selectedBloodType.displayName)")
+            Button(action: {
+                sendInfo(input: input, birthday: birthday, selectedBloodType: selectedBloodType)
+            }) {
+                Text("送信する")
+                    .foregroundColor(.white)
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
             }
         }
     }
@@ -59,5 +45,4 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }
