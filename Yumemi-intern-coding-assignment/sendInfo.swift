@@ -7,21 +7,22 @@
 
 import Foundation
 
-func sendInfo(input: PersonalRecord, birthday: Birthday, selectedBloodType: BloodType) {
+func sendInfo(input: PersonalRecord, birthday: Birthday, selectedBloodType: BloodType, completion: @escaping (Result<FortuneResponse, Error>) -> Void) {
     var updatedInput = input
+
+    // 誕生日情報を更新
     updatedInput.birthday.year = Int(birthday.year) ?? 0
     updatedInput.birthday.month = Int(birthday.month) ?? 0
     updatedInput.birthday.day = Int(birthday.day) ?? 0
     updatedInput.blood_type = selectedBloodType.displayName.lowercased()
-    
-    // URLとリクエストの設定
-    let url = URL(string: "https://ios-junior-engineer-codecheck-snefnyqv2q-an.a.run.app/my_fortune")!
+
+    let url = URL(string: "https://ios-junior-engineer-codecheck-snefnyqv2q-an.a.run.app/my_fortune")! // リクエストURL
     var request = URLRequest(url: url)
-    request.httpMethod = "POST"
-    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.addValue("v1", forHTTPHeaderField: "API-Version")
-    
-    // リクエストボディの設定
+    request.httpMethod = "POST" // HTTPメソッドをPOSTに設定
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type") // ヘッダーにコンテンツタイプを設定
+    request.addValue("v1", forHTTPHeaderField: "API-Version") // ヘッダーにAPIバージョンを設定
+
+    // リクエストボディを作成
     let body: [String: Any] = [
         "name": updatedInput.name,
         "birthday": [
@@ -36,45 +37,39 @@ func sendInfo(input: PersonalRecord, birthday: Birthday, selectedBloodType: Bloo
             "day": Calendar.current.component(.day, from: Date())
         ]
     ]
-    
+
+    // JSONシリアライズを試行
     do {
         request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
     } catch {
-        print("Error serializing JSON: \(error)")
+        completion(.failure(error)) // シリアライズエラーを返す
         return
     }
-    
-    // リクエスト送信
+
+    // データタスクを作成して実行
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         if let error = error {
-            print("Error: \(error)")
+            completion(.failure(error)) // リクエストエラーを返す
             return
         }
-        
-        guard let httpResponse = response as? HTTPURLResponse else {
-            print("Invalid response")
+
+        guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode), let data = data else {
+            let responseError = NSError(domain: "", code: (response as? HTTPURLResponse)?.statusCode ?? -1, userInfo: nil)
+            completion(.failure(responseError)) // ステータスコードエラーを返す
             return
         }
-        
-        guard (200...299).contains(httpResponse.statusCode) else {
-            print("Failed with status code: \(httpResponse.statusCode)")
-            if let data = data, let responseBody = String(data: data, encoding: .utf8) {
-                print("Response body: \(responseBody)")
-            }
-            return
-        }
-        
-        if let data = data {
-            do {
-                if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    print("Success!")
-                    print(jsonResponse)
-                }
-            } catch {
-                print("Error parsing response JSON: \(error)")
-            }
+
+        do {
+            // デバッグ用に生のJSONレスポンスを印刷
+            let jsonResponse = try JSONSerialization.jsonObject(with: data, options: [])
+            print("JSON Response: \(jsonResponse)")
+
+            let decodedResponse = try JSONDecoder().decode(FortuneResponse.self, from: data) // JSONレスポンスをデコード
+            completion(.success(decodedResponse)) // 成功結果を返す
+        } catch {
+            completion(.failure(error)) // デコードエラーを返す
         }
     }
-    
-    task.resume()
+
+    task.resume() // タスクを開始
 }
