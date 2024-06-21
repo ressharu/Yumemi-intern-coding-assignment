@@ -16,8 +16,7 @@ struct AsyncImageView: View {
             if let image = image {
                 Image(uiImage: image)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, height: 100)
+                    .frame(width: 300, height: 300)
             } else {
                 ProgressView()
                     .onAppear {
@@ -43,17 +42,50 @@ struct FortuneView: View {
 
     var body: some View {
         VStack {
-            Text("都道府県: \(fortune.name)")
-            Text("県庁所在地: \(fortune.capital)")
-            Text("説明: \(fortune.brief)")
-            if let citizenDay = fortune.citizen_day {
-                Text("県民の日: \(citizenDay.month)/\(citizenDay.day)")
-            }
-            Text("海と面している？: \(fortune.has_coast_line ? "Yes" : "No")")
-            
+            Text("\(fortune.name)")
+                .font(.system(.largeTitle, design: .serif))
+                .multilineTextAlignment(.center)
+                .bold()
+                .padding(.top)
             AsyncImageView(url: fortune.logo_url)
+                .padding()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 300, height: 300)
+            Divider()
+                .frame(width: 300)
+            ScrollView {
+                HStack {
+                    Spacer()
+                        .frame(width: 50.0)
+                    VStack {
+                        HStack {
+                            Text("県庁所在地:")
+                                .bold()
+                            Text(fortune.capital)
+                        }
+                        Text(fortune.brief)
+                            .multilineTextAlignment(.center)
+                        HStack {
+                            Text("県民の日:")
+                                .bold()
+                            if let citizenDay = fortune.citizen_day {
+                                Text("\(citizenDay.month)/\(citizenDay.day)")
+                            } else {
+                                Text("なし")
+                            }
+                        }
+                        HStack {
+                            Text("海と面している？:")
+                                .bold()
+                            Text(fortune.has_coast_line ? "Yes" : "No")
+                        }
+                    }
+                    Spacer()
+                        .frame(width: 50.0)
+                }
+            }
         }
-        .navigationBarTitle("Fortune Result", displayMode: .inline)
+        .navigationBarTitle("占い結果！", displayMode: .inline)
     }
 }
 
