@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		431646B82C21C2C8001CF8A7 /* sendInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431646B72C21C2C8001CF8A7 /* sendInfo.swift */; };
 		431646BA2C21C35B001CF8A7 /* PersonalRecordManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431646B92C21C35B001CF8A7 /* PersonalRecordManagement.swift */; };
 		431646BC2C21C3E5001CF8A7 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431646BB2C21C3E5001CF8A7 /* RootView.swift */; };
 		4317E9C72C2316DD009F9182 /* DisplayInfoManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317E9C62C2316DD009F9182 /* DisplayInfoManagement.swift */; };
@@ -39,7 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		431646B72C21C2C8001CF8A7 /* sendInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendInfo.swift; sourceTree = "<group>"; };
 		431646B92C21C35B001CF8A7 /* PersonalRecordManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecordManagement.swift; sourceTree = "<group>"; };
 		431646BB2C21C3E5001CF8A7 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		4317E9C62C2316DD009F9182 /* DisplayInfoManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayInfoManagement.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				4371F5952C2467F7002A15EC /* ResultView.swift */,
 				431646B92C21C35B001CF8A7 /* PersonalRecordManagement.swift */,
 				4317E9C62C2316DD009F9182 /* DisplayInfoManagement.swift */,
-				431646B72C21C2C8001CF8A7 /* sendInfo.swift */,
 				435371A52C1FBCDD006E16BB /* Assets.xcassets */,
 				435371A72C1FBCDD006E16BB /* Yumemi_intern_coding_assignment.entitlements */,
 				435371A82C1FBCDD006E16BB /* Preview Content */,
@@ -276,7 +273,6 @@
 			files = (
 				435371A22C1FBCDC006E16BB /* ContentView.swift in Sources */,
 				431646BA2C21C35B001CF8A7 /* PersonalRecordManagement.swift in Sources */,
-				431646B82C21C2C8001CF8A7 /* sendInfo.swift in Sources */,
 				435371A02C1FBCDC006E16BB /* Yumemi_intern_coding_assignmentApp.swift in Sources */,
 				431646BC2C21C3E5001CF8A7 /* RootView.swift in Sources */,
 				4371F5962C2467F7002A15EC /* ResultView.swift in Sources */,
