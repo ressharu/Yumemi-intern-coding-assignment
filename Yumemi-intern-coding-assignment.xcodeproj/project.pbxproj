@@ -17,7 +17,7 @@
 		435371B42C1FBCDD006E16BB /* Yumemi_intern_coding_assignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435371B32C1FBCDD006E16BB /* Yumemi_intern_coding_assignmentTests.swift */; };
 		435371BE2C1FBCDD006E16BB /* Yumemi_intern_coding_assignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435371BD2C1FBCDD006E16BB /* Yumemi_intern_coding_assignmentUITests.swift */; };
 		435371C02C1FBCDD006E16BB /* Yumemi_intern_coding_assignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435371BF2C1FBCDD006E16BB /* Yumemi_intern_coding_assignmentUITestsLaunchTests.swift */; };
-		4371F5962C2467F7002A15EC /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371F5952C2467F7002A15EC /* ResultView.swift */; };
+		4371F5962C2467F7002A15EC /* FortuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371F5952C2467F7002A15EC /* FortuneView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		435371B92C1FBCDD006E16BB /* Yumemi-intern-coding-assignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Yumemi-intern-coding-assignmentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		435371BD2C1FBCDD006E16BB /* Yumemi_intern_coding_assignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yumemi_intern_coding_assignmentUITests.swift; sourceTree = "<group>"; };
 		435371BF2C1FBCDD006E16BB /* Yumemi_intern_coding_assignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yumemi_intern_coding_assignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		4371F5952C2467F7002A15EC /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		4371F5952C2467F7002A15EC /* FortuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 				4353719F2C1FBCDC006E16BB /* Yumemi_intern_coding_assignmentApp.swift */,
 				431646BB2C21C3E5001CF8A7 /* RootView.swift */,
 				435371A12C1FBCDC006E16BB /* ContentView.swift */,
-				4371F5952C2467F7002A15EC /* ResultView.swift */,
+				4371F5952C2467F7002A15EC /* FortuneView.swift */,
 				431646B92C21C35B001CF8A7 /* PersonalRecordManagement.swift */,
 				4317E9C62C2316DD009F9182 /* DisplayInfoManagement.swift */,
 				435371A52C1FBCDD006E16BB /* Assets.xcassets */,
@@ -275,7 +275,7 @@
 				431646BA2C21C35B001CF8A7 /* PersonalRecordManagement.swift in Sources */,
 				435371A02C1FBCDC006E16BB /* Yumemi_intern_coding_assignmentApp.swift in Sources */,
 				431646BC2C21C3E5001CF8A7 /* RootView.swift in Sources */,
-				4371F5962C2467F7002A15EC /* ResultView.swift in Sources */,
+				4371F5962C2467F7002A15EC /* FortuneView.swift in Sources */,
 				4317E9C72C2316DD009F9182 /* DisplayInfoManagement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
