@@ -47,17 +47,21 @@ struct ContentView: View {
                                 TextField("お名前", text: $input.name) // 名前入力フィールド
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
                                     .padding(.horizontal)
+                                    .foregroundColor(Color.primary)
                             }
                             Section(header: Text("お誕生日")) {
                                 TextField("年 例: 2000", text: $birthday.year) // 年入力フィールド
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
                                     .padding(.horizontal)
+                                    .foregroundColor(Color.primary)
                                 TextField("月 例: 4", text: $birthday.month) // 月入力フィールド
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
                                     .padding(.horizontal)
+                                    .foregroundColor(Color.primary)
                                 TextField("日 例: 1", text: $birthday.day) // 日入力フィールド
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
                                     .padding(.horizontal)
+                                    .foregroundColor(Color.primary)
                             }
                             Section(header: Text("血液型")) {
                                 Picker("血液型", selection: $selectedBloodType) { // 血液型選択ピッカー
@@ -67,6 +71,7 @@ struct ContentView: View {
                                 }
                                 .pickerStyle(SegmentedPickerStyle())
                                 .padding(.horizontal)
+                                .foregroundColor(Color.primary)
                             }
                         }
                         .padding()
