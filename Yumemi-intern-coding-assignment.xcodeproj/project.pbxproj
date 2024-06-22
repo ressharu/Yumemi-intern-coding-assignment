@@ -118,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				439C619D2C274F8400C601BA /* App */,
-				431646BB2C21C3E5001CF8A7 /* RootView.swift */,
 				439C619E2C274F8A00C601BA /* Views */,
 				4371F5DC2C26B84C002A15EC /* Models */,
 				439C619F2C274FA700C601BA /* Services */,
@@ -176,6 +175,7 @@
 		439C619E2C274F8A00C601BA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				431646BB2C21C3E5001CF8A7 /* RootView.swift */,
 				435371A12C1FBCDC006E16BB /* ContentView.swift */,
 				43B95D6A2C272F7E00004988 /* DetailView.swift */,
 				4371F5952C2467F7002A15EC /* FortuneView.swift */,

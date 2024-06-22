@@ -20,7 +20,7 @@ struct RootView: View {
                 .tabItem {
                     Label(
                         title: { Text("ホーム") },
-                        icon: { Image(systemName: "crown.fill") }
+                        icon: { Image(systemName: "house.fill") }
                     )
                 }
             HistoryView()
@@ -34,9 +34,3 @@ struct RootView: View {
         }
     }
 }
-
-
-#Preview {
-    RootView()
-}
-
