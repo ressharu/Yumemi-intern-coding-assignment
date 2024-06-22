@@ -1,7 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "6D154CFB-366A-47A5-A372-672600473715"
+   uuid = "8C70A7BA-8125-4866-B94D-C5C4A32F8B07"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F0586875-DB6A-4BBC-B9F5-6680A57C0CF0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Yumemi-intern-coding-assignment/Model/PersonalRecordHistory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "PersonalRecordHistory"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "F0586875-DB6A-4BBC-B9F5-6680A57C0CF0 - 9472bae3c44f3b94"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Yumemi_intern_coding_assignment.PersonalRecordHistory.deinit"
+                  moduleName = "Yumemi-intern-coding-assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harukiwatanabe/workspace/intern/%E3%82%86%E3%82%81%E3%81%BF/Yumemi-intern-coding-assignment/Yumemi-intern-coding-assignment/Model/PersonalRecordHistory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "F0586875-DB6A-4BBC-B9F5-6680A57C0CF0 - bec9d87bd47ec963"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Yumemi_intern_coding_assignment.PersonalRecordHistory.__deallocating_deinit"
+                  moduleName = "Yumemi-intern-coding-assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/harukiwatanabe/workspace/intern/%E3%82%86%E3%82%81%E3%81%BF/Yumemi-intern-coding-assignment/Yumemi-intern-coding-assignment/Model/PersonalRecordHistory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FBFF40A0-8BF7-4076-A991-5D371F95331D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Yumemi-intern-coding-assignment/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "sendInfo(input:birthday:selectedBloodType:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31F9BA0C-104A-4E94-8DD5-48C853C5B205"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Yumemi-intern-coding-assignment/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "sendInfo(input:birthday:selectedBloodType:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
-p

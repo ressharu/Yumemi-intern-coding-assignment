@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-//ユーザーが入力するデータを管理する構造体
 struct PersonalRecord: Decodable, Encodable {
     var name: String
     var birthday: YearMonthDay
@@ -43,7 +41,6 @@ struct Birthday {
     var month: String
     var day: String
     
-    
     init(year: String = "", month: String = "", day: String = "") {
         self.year = year
         self.month = month
@@ -56,7 +53,6 @@ enum BloodType: String, CaseIterable, Identifiable {
     case b
     case ab
     case o
-    
     
     var displayName: String {
         switch self {

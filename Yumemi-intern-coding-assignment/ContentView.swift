@@ -6,20 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     @State private var input: PersonalRecord = PersonalRecord() // ユーザー入力の個人情報を保持する状態
     @State private var selectedBloodType: BloodType = .a // 血液型の選択状態
     @State private var birthday: Birthday = Birthday() // ユーザーの誕生日情報を保持する状態
-    @State private var responseMessage: FortuneResponse // サーバーからの応答メッセージを保持する状態
+    @State private var responseMessage: FortuneResponse = FortuneResponse() // サーバーからの応答メッセージを保持する状態
     @State private var showingDetail = false // 詳細ビューを表示するかどうかの状態
     @State private var isLoading = false // ローディング中かどうかの状態
     @State private var errorMessage: String? = nil // エラーメッセージを保持する状態
 
-    // イニシャライザにデフォルト値を設定
-    init(responseMessage: FortuneResponse = FortuneResponse()) {
-        self._responseMessage = State(initialValue: responseMessage)
-    }
+    @Environment(\.modelContext) private var context
 
     var body: some View {
         NavigationStack {
@@ -52,6 +50,7 @@ struct ContentView: View {
                             case .success(let message):
                                 self.responseMessage = message // 成功時の応答メッセージを設定
                                 self.showingDetail = true // 詳細ビューを表示
+                                self.save(input: input, birthday: birthday, selectedBloodType: selectedBloodType, responseMessage: responseMessage)
                             case .failure(let error):
                                 self.errorMessage = "Error: \(error.localizedDescription)" // エラーメッセージを設定
                             }
@@ -153,6 +152,55 @@ struct ContentView: View {
         task.resume() // タスクを開始
     }
 
+    private func save(input: PersonalRecord, birthday: Birthday, selectedBloodType: BloodType, responseMessage: FortuneResponse) {
+        var id: Int = UUID().hashValue
+        
+        //PersonalRecordHistoryに保存
+        let today = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        guard let year = today.year, let month = today.month, let day = today.day else {
+            return
+        }
+
+        let personalRecordH = PersonalRecordHistory(
+            id: id,
+            name: input.name,
+            year: Int(birthday.year) ?? 0,
+            month: Int(birthday.month) ?? 0,
+            day: Int(birthday.day) ?? 0,
+            bloodType: selectedBloodType.displayName,
+            today: "\(year)-\(month)-\(day)"
+        )
+
+        context.insert(personalRecordH)
+
+        do {
+            try context.save()
+            print("Personal record saved successfully")
+        } catch {
+            print("Failed to save personal record: \(error.localizedDescription)")
+        }
+        
+        //FortuneResponseHistoryに保存
+        let fortuneResponseH = FortuneResponseHistory(
+            id: id,
+            name: responseMessage.name,
+            capital: responseMessage.capital,
+            has_coast_line: responseMessage.has_coast_line,
+            logo_url: responseMessage.logo_url,
+            brief: responseMessage.brief,
+            CitizenDay_month: responseMessage.citizen_day?.month ?? 0,
+            CitizenDay_day: responseMessage.citizen_day?.day ?? 0
+        )
+
+        context.insert(fortuneResponseH)
+
+        do {
+            try context.save()
+            print("Fortune result saved successfully")
+        } catch {
+            print("Failed to save Fortune result: \(error.localizedDescription)")
+        }
+    }
 }
 
 #Preview {
