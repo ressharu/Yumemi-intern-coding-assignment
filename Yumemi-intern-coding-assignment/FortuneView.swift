@@ -6,36 +6,7 @@
 //
 
 import SwiftUI
-
-struct AsyncImageView: View {
-    @State private var image: UIImage? = nil
-    let url: URL
-
-    var body: some View {
-        VStack {
-            if let image = image {
-                Image(uiImage: image)
-                    .resizable()
-                    .frame(width: 300, height: 300)
-            } else {
-                ProgressView()
-                    .onAppear {
-                        loadImage()
-                    }
-            }
-        }
-    }
-
-    private func loadImage() {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data, let loadedImage = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.image = loadedImage
-                }
-            }
-        }.resume()
-    }
-}
+import SDWebImageSwiftUI
 
 struct FortuneView: View {
     var fortune: FortuneResponse
@@ -47,10 +18,13 @@ struct FortuneView: View {
                 .multilineTextAlignment(.center)
                 .bold()
                 .padding(.top)
-            AsyncImageView(url: fortune.logo_url)
-                .padding()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 300, height: 300)
+            // 画像の表示
+            if let url = URL(string: fortune.logo_url.absoluteString) {
+                WebImage(url: url)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300, height: 300)
+            }
             Divider()
                 .frame(width: 300)
             ScrollView {
