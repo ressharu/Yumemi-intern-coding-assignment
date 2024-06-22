@@ -118,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				43B95D6C2C27413E00004988 /* App */,
-				43B95D6D2C27415800004988 /* VIews */,
+				43B95D6D2C27415800004988 /* Views */,
 				4371F5DC2C26B84C002A15EC /* Models */,
 				43B95D6E2C2741B500004988 /* Services */,
 				435371A72C1FBCDD006E16BB /* Yumemi_intern_coding_assignment.entitlements */,
@@ -172,7 +172,7 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		43B95D6D2C27415800004988 /* VIews */ = {
+		43B95D6D2C27415800004988 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				431646BB2C21C3E5001CF8A7 /* RootView.swift */,
@@ -181,7 +181,7 @@
 				4371F5952C2467F7002A15EC /* FortuneView.swift */,
 				43B95D652C27058200004988 /* HistoryView.swift */,
 			);
-			path = VIews;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		43B95D6E2C2741B500004988 /* Services */ = {
