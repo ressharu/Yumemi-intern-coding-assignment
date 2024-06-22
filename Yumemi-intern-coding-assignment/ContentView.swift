@@ -148,7 +148,8 @@ struct ContentView: View {
                 completion(.failure(error)) // デコードエラーを返す
             }
         }
-        task.resume()
+        
+        task.resume() // タスクを開始
     }
 
     private func save(input: PersonalRecord, birthday: Birthday, selectedBloodType: BloodType, responseMessage: FortuneResponse) {
