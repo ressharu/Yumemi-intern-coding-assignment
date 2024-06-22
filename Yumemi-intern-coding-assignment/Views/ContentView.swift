@@ -117,12 +117,8 @@ struct ContentView: View {
                     }
                 }
                 .padding()
-                
-                NavigationLink(
-                    destination: FortuneView(fortune: responseMessage), // 応答メッセージを表示するビュー
-                    isActive: $showingDetail
-                ) {
-                    EmptyView() // 詳細ビューへのナビゲーションリンク
+                .navigationDestination(isPresented: $showingDetail) {
+                    FortuneView(fortune: responseMessage) // 応答メッセージを表示するビュー
                 }
             }
         }
