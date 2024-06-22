@@ -22,6 +22,7 @@
 		4371F5962C2467F7002A15EC /* FortuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371F5952C2467F7002A15EC /* FortuneView.swift */; };
 		43B95D662C27058200004988 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B95D652C27058200004988 /* HistoryView.swift */; };
 		43B95D692C271AB300004988 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 43B95D682C271AB300004988 /* SDWebImageSwiftUI */; };
+		43B95D6B2C272F7E00004988 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B95D6A2C272F7E00004988 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		4356E0C52C26EA61000760CA /* FortuneResponseHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneResponseHistory.swift; sourceTree = "<group>"; };
 		4371F5952C2467F7002A15EC /* FortuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneView.swift; sourceTree = "<group>"; };
 		43B95D652C27058200004988 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		43B95D6A2C272F7E00004988 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				4353719F2C1FBCDC006E16BB /* Yumemi_intern_coding_assignmentApp.swift */,
 				431646BB2C21C3E5001CF8A7 /* RootView.swift */,
 				435371A12C1FBCDC006E16BB /* ContentView.swift */,
+				43B95D6A2C272F7E00004988 /* DetailView.swift */,
 				4371F5952C2467F7002A15EC /* FortuneView.swift */,
 				43B95D652C27058200004988 /* HistoryView.swift */,
 				431646B92C21C35B001CF8A7 /* PersonalRecordManagement.swift */,
@@ -299,6 +302,7 @@
 				435371A22C1FBCDC006E16BB /* ContentView.swift in Sources */,
 				431646BA2C21C35B001CF8A7 /* PersonalRecordManagement.swift in Sources */,
 				435371A02C1FBCDC006E16BB /* Yumemi_intern_coding_assignmentApp.swift in Sources */,
+				43B95D6B2C272F7E00004988 /* DetailView.swift in Sources */,
 				4356E0C62C26EA61000760CA /* FortuneResponseHistory.swift in Sources */,
 				4356E0C42C26BC69000760CA /* PersonalRecordHistory.swift in Sources */,
 				431646BC2C21C3E5001CF8A7 /* RootView.swift in Sources */,
