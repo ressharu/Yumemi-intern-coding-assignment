@@ -77,8 +77,13 @@ struct HistoryView: View {
                                             HStack {
                                                 Text("県民の日:")
                                                     .bold()
-                                                Text("\(response.CitizenDay_month)/\(response.CitizenDay_day)")
-                                                    .foregroundColor(Color.primary)
+                                                if response.CitizenDay_month == 0 || response.CitizenDay_day == 0 {
+                                                    Text("なし")
+                                                        .foregroundColor(Color.primary)
+                                                } else {
+                                                    Text("\(response.CitizenDay_month)/\(response.CitizenDay_day)")
+                                                        .foregroundColor(Color.primary)
+                                                }
                                             }
                                             HStack {
                                                 Text("県庁所在地:")
