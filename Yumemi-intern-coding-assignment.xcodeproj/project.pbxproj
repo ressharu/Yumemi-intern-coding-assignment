@@ -23,6 +23,8 @@
 		43B95D662C27058200004988 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B95D652C27058200004988 /* HistoryView.swift */; };
 		43B95D692C271AB300004988 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 43B95D682C271AB300004988 /* SDWebImageSwiftUI */; };
 		43B95D6B2C272F7E00004988 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B95D6A2C272F7E00004988 /* DetailView.swift */; };
+		43B95D702C2741E400004988 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B95D6F2C2741E400004988 /* APIService.swift */; };
+		43B95D722C2742CC00004988 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B95D712C2742CC00004988 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		4371F5952C2467F7002A15EC /* FortuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneView.swift; sourceTree = "<group>"; };
 		43B95D652C27058200004988 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		43B95D6A2C272F7E00004988 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		43B95D6F2C2741E400004988 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		43B95D712C2742CC00004988 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,17 +117,12 @@
 		4353719E2C1FBCDC006E16BB /* Yumemi-intern-coding-assignment */ = {
 			isa = PBXGroup;
 			children = (
-				4353719F2C1FBCDC006E16BB /* Yumemi_intern_coding_assignmentApp.swift */,
-				431646BB2C21C3E5001CF8A7 /* RootView.swift */,
-				435371A12C1FBCDC006E16BB /* ContentView.swift */,
-				43B95D6A2C272F7E00004988 /* DetailView.swift */,
-				4371F5952C2467F7002A15EC /* FortuneView.swift */,
-				43B95D652C27058200004988 /* HistoryView.swift */,
-				431646B92C21C35B001CF8A7 /* PersonalRecord.swift */,
-				4317E9C62C2316DD009F9182 /* FortuneResponse.swift */,
-				4371F5DC2C26B84C002A15EC /* Model */,
-				435371A52C1FBCDD006E16BB /* Assets.xcassets */,
+				43B95D6C2C27413E00004988 /* App */,
+				43B95D6D2C27415800004988 /* VIews */,
+				4371F5DC2C26B84C002A15EC /* Models */,
+				43B95D6E2C2741B500004988 /* Services */,
 				435371A72C1FBCDD006E16BB /* Yumemi_intern_coding_assignment.entitlements */,
+				435371A52C1FBCDD006E16BB /* Assets.xcassets */,
 				435371A82C1FBCDD006E16BB /* Preview Content */,
 			);
 			path = "Yumemi-intern-coding-assignment";
@@ -154,13 +153,44 @@
 			path = "Yumemi-intern-coding-assignmentUITests";
 			sourceTree = "<group>";
 		};
-		4371F5DC2C26B84C002A15EC /* Model */ = {
+		4371F5DC2C26B84C002A15EC /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				4356E0C32C26BC69000760CA /* PersonalRecordHistory.swift */,
 				4356E0C52C26EA61000760CA /* FortuneResponseHistory.swift */,
+				431646B92C21C35B001CF8A7 /* PersonalRecord.swift */,
+				4317E9C62C2316DD009F9182 /* FortuneResponse.swift */,
 			);
-			path = Model;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		43B95D6C2C27413E00004988 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4353719F2C1FBCDC006E16BB /* Yumemi_intern_coding_assignmentApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		43B95D6D2C27415800004988 /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+				431646BB2C21C3E5001CF8A7 /* RootView.swift */,
+				435371A12C1FBCDC006E16BB /* ContentView.swift */,
+				43B95D6A2C272F7E00004988 /* DetailView.swift */,
+				4371F5952C2467F7002A15EC /* FortuneView.swift */,
+				43B95D652C27058200004988 /* HistoryView.swift */,
+			);
+			path = VIews;
+			sourceTree = "<group>";
+		};
+		43B95D6E2C2741B500004988 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				43B95D6F2C2741E400004988 /* APIService.swift */,
+				43B95D712C2742CC00004988 /* DataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,7 +332,9 @@
 				435371A22C1FBCDC006E16BB /* ContentView.swift in Sources */,
 				431646BA2C21C35B001CF8A7 /* PersonalRecord.swift in Sources */,
 				435371A02C1FBCDC006E16BB /* Yumemi_intern_coding_assignmentApp.swift in Sources */,
+				43B95D722C2742CC00004988 /* DataService.swift in Sources */,
 				43B95D6B2C272F7E00004988 /* DetailView.swift in Sources */,
+				43B95D702C2741E400004988 /* APIService.swift in Sources */,
 				4356E0C62C26EA61000760CA /* FortuneResponseHistory.swift in Sources */,
 				4356E0C42C26BC69000760CA /* PersonalRecordHistory.swift in Sources */,
 				431646BC2C21C3E5001CF8A7 /* RootView.swift in Sources */,
