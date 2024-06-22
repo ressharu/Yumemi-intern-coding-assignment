@@ -61,28 +61,34 @@ struct HistoryView: View {
                                         VStack(alignment: .leading) {
                                             Text(response.name)
                                                 .font(.headline)
+                                                .foregroundColor(Color.primary)
                                             HStack {
                                                 Text("県庁所在地:")
                                                     .bold()
                                                 Text(response.capital)
+                                                    .foregroundColor(Color.primary)
                                             }
                                             HStack {
                                                 Text("海と面している？:")
                                                     .bold()
                                                 Text(response.has_coast_line ? "Yes" : "No")
+                                                    .foregroundColor(Color.primary)
                                             }
                                             HStack {
                                                 Text("県民の日:")
                                                     .bold()
                                                 Text("\(response.CitizenDay_month)/\(response.CitizenDay_day)")
+                                                    .foregroundColor(Color.primary)
                                             }
                                             HStack {
                                                 Text("県庁所在地:")
                                                     .bold()
                                                 Text(response.capital)
+                                                    .foregroundColor(Color.primary)
                                             }
                                             Text("\(response.brief)")
                                                 .lineLimit(3)
+                                                .foregroundColor(Color.primary)
                                         }
                                     }
                                 }

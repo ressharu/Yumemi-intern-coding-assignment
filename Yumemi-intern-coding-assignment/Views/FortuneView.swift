@@ -18,6 +18,7 @@ struct FortuneView: View {
                 .multilineTextAlignment(.center)
                 .bold()
                 .padding(.top)
+                .foregroundColor(Color.primary)
             // 画像の表示
             if let url = URL(string: fortune.logo_url.absoluteString) {
                 WebImage(url: url)
@@ -36,24 +37,29 @@ struct FortuneView: View {
                             Text("県庁所在地:")
                                 .bold()
                             Text(fortune.capital)
+                                .foregroundColor(Color.primary)
                         }
                         Text("概要:")
                             .bold()
                         Text(fortune.brief)
                             .multilineTextAlignment(.center)
+                            .foregroundColor(Color.primary)
                         HStack {
                             Text("県民の日:")
                                 .bold()
                             if let citizenDay = fortune.citizen_day {
                                 Text("\(citizenDay.month)/\(citizenDay.day)")
+                                    .foregroundColor(Color.primary)
                             } else {
                                 Text("なし")
+                                    .foregroundColor(Color.primary)
                             }
                         }
                         HStack {
                             Text("海と面している？:")
                                 .bold()
                             Text(fortune.has_coast_line ? "Yes" : "No")
+                                .foregroundColor(Color.primary)
                         }
                     }
                     Spacer()

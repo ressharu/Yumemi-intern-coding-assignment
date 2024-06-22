@@ -25,21 +25,25 @@ struct DetailView: View {
                             Text("お名前:") // 名前のラベル
                                 .bold()
                             Text(record.name) // 名前の値
+                                .foregroundColor(Color.primary)
                         }
                         HStack {
                             Text("お誕生日:") // 誕生日のラベル
                                 .bold()
                             Text("\(record.year)年 \(record.month)月 \(record.day)日") // 誕生日の値
+                                .foregroundColor(Color.primary)
                         }
                         HStack {
                             Text("血液型:") // 血液型のラベル
                                 .bold()
                             Text(record.bloodType) // 血液型の値
+                                .foregroundColor(Color.primary)
                         }
                         HStack {
                             Text("占った日:") // 占いをした日のラベル
                                 .bold()
                             Text(record.today) // 占いをした日の値
+                                .foregroundColor(Color.primary)
                         }
                     }
                     .padding()
