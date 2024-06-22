@@ -148,7 +148,7 @@ struct ContentView: View {
                 completion(.failure(error)) // デコードエラーを返す
             }
         }
-        
+
         task.resume() // タスクを開始
     }
 
