@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Yumemi_intern_coding_assignmentApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: [PersonalRecordHistory.self, FortuneResponseHistory.self], inMemory: false)
         }
     }
 }
