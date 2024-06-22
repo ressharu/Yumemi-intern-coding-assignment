@@ -118,8 +118,10 @@ struct ContentView: View {
 
         // JSONシリアライズを試行
         do {
+            print("Request Body: \(body)") // デバッグ用にボディを出力
             request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
         } catch {
+            print("JSON Serialization Error: \(error.localizedDescription)") // エラーを出力
             completion(.failure(error)) // シリアライズエラーを返す
             return
         }
@@ -152,8 +154,9 @@ struct ContentView: View {
         task.resume() // タスクを開始
     }
 
+
     private func save(input: PersonalRecord, birthday: Birthday, selectedBloodType: BloodType, responseMessage: FortuneResponse) {
-        var id: Int = UUID().hashValue
+        let id: Int = UUID().hashValue
         
         //PersonalRecordHistoryに保存
         let today = Calendar.current.dateComponents([.year, .month, .day], from: Date())

@@ -23,8 +23,7 @@ struct RootView: View {
                         icon: { Image(systemName: "crown.fill") }
                     )
                 }
-/*
-            FavoriteView()
+            HistoryView()
                 .tag(Tab.favorite)
                 .tabItem {
                     Label(
@@ -32,7 +31,6 @@ struct RootView: View {
                         icon: { Image(systemName: "list.star") }
                     )
                 }
- */
         }
     }
 }

@@ -20,6 +20,8 @@
 		4356E0C42C26BC69000760CA /* PersonalRecordHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4356E0C32C26BC69000760CA /* PersonalRecordHistory.swift */; };
 		4356E0C62C26EA61000760CA /* FortuneResponseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4356E0C52C26EA61000760CA /* FortuneResponseHistory.swift */; };
 		4371F5962C2467F7002A15EC /* FortuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371F5952C2467F7002A15EC /* FortuneView.swift */; };
+		43B95D662C27058200004988 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B95D652C27058200004988 /* HistoryView.swift */; };
+		43B95D692C271AB300004988 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 43B95D682C271AB300004988 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,7 @@
 		4356E0C32C26BC69000760CA /* PersonalRecordHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecordHistory.swift; sourceTree = "<group>"; };
 		4356E0C52C26EA61000760CA /* FortuneResponseHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneResponseHistory.swift; sourceTree = "<group>"; };
 		4371F5952C2467F7002A15EC /* FortuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneView.swift; sourceTree = "<group>"; };
+		43B95D652C27058200004988 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B95D692C271AB300004988 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +115,7 @@
 				431646BB2C21C3E5001CF8A7 /* RootView.swift */,
 				435371A12C1FBCDC006E16BB /* ContentView.swift */,
 				4371F5952C2467F7002A15EC /* FortuneView.swift */,
+				43B95D652C27058200004988 /* HistoryView.swift */,
 				431646B92C21C35B001CF8A7 /* PersonalRecordManagement.swift */,
 				4317E9C62C2316DD009F9182 /* FortuneResponse.swift */,
 				4371F5DC2C26B84C002A15EC /* Model */,
@@ -171,6 +176,9 @@
 			dependencies = (
 			);
 			name = "Yumemi-intern-coding-assignment";
+			packageProductDependencies = (
+				43B95D682C271AB300004988 /* SDWebImageSwiftUI */,
+			);
 			productName = "Yumemi-intern-coding-assignment";
 			productReference = 4353719C2C1FBCDC006E16BB /* Yumemi-intern-coding-assignment.app */;
 			productType = "com.apple.product-type.application";
@@ -243,6 +251,9 @@
 				Base,
 			);
 			mainGroup = 435371932C1FBCDC006E16BB;
+			packageReferences = (
+				43B95D672C271AB300004988 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 4353719D2C1FBCDC006E16BB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -292,6 +303,7 @@
 				4356E0C42C26BC69000760CA /* PersonalRecordHistory.swift in Sources */,
 				431646BC2C21C3E5001CF8A7 /* RootView.swift in Sources */,
 				4371F5962C2467F7002A15EC /* FortuneView.swift in Sources */,
+				43B95D662C27058200004988 /* HistoryView.swift in Sources */,
 				4317E9C72C2316DD009F9182 /* FortuneResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -651,6 +663,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		43B95D672C271AB300004988 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		43B95D682C271AB300004988 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43B95D672C271AB300004988 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 435371942C1FBCDC006E16BB /* Project object */;
 }
