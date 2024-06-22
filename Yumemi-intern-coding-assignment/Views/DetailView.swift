@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 struct DetailView: View {
     var personalRecord: PersonalRecordHistory?
     var fortune: FortuneResponseHistory
-
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -44,10 +44,10 @@ struct DetailView: View {
                     }
                     .padding()
                 }
-
+                
                 Divider()
                     .padding(.vertical)
-
+                
                 // FortuneViewを使用して占い結果を表示
                 FortuneView(fortune: FortuneResponse(
                     name: fortune.name,

@@ -10,9 +10,9 @@ import SwiftData
 
 class DataService {
     static let shared = DataService()
-
+    
     private init() {}
-
+    
     func savePersonalRecord(input: PersonalRecord, birthday: Birthday, selectedBloodType: BloodType, responseMessage: FortuneResponse, context: ModelContext) {
         let id: Int = UUID().hashValue
         
@@ -21,7 +21,7 @@ class DataService {
         guard let year = today.year, let month = today.month, let day = today.day else {
             return
         }
-
+        
         let personalRecordH = PersonalRecordHistory(
             id: id,
             name: input.name,
@@ -31,9 +31,9 @@ class DataService {
             bloodType: selectedBloodType.displayName,
             today: "\(year)-\(month)-\(day)"
         )
-
+        
         context.insert(personalRecordH)
-
+        
         do {
             try context.save()
             print("Personal record saved successfully")
@@ -52,9 +52,9 @@ class DataService {
             CitizenDay_month: responseMessage.citizen_day?.month ?? 0,
             CitizenDay_day: responseMessage.citizen_day?.day ?? 0
         )
-
+        
         context.insert(fortuneResponseH)
-
+        
         do {
             try context.save()
             print("Fortune result saved successfully")

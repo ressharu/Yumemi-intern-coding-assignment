@@ -14,12 +14,12 @@ struct FortuneResponse: Codable, Hashable {
     var has_coast_line: Bool
     var logo_url: URL
     var brief: String
-
+    
     struct CitizenDay: Codable, Hashable {
         var month: Int
         var day: Int
     }
-
+    
     // イニシャライザ
     init(name: String = "", capital: String = "", citizen_day: CitizenDay? = nil, has_coast_line: Bool = true, logo_url: URL = URL(string: "https://example.com")!, brief: String = "") {
         self.name = name
