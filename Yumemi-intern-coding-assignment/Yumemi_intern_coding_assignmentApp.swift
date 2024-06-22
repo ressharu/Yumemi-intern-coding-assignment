@@ -12,7 +12,7 @@ import SwiftData
 struct Yumemi_intern_coding_assignmentApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
                 .modelContainer(for: [PersonalRecordHistory.self, FortuneResponseHistory.self], inMemory: false)
         }
     }
