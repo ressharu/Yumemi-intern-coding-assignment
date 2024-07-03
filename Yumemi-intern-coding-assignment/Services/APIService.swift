@@ -49,10 +49,6 @@ class APIService {
             }
             
             do {
-                // デバッグ用に生のJSONレスポンスを印刷
-                let jsonResponse = try JSONSerialization.jsonObject(with: data, options: [])
-                print("JSON Response: \(jsonResponse)")
-                
                 let decodedResponse = try JSONDecoder().decode(FortuneResponse.self, from: data) // JSONレスポンスをデコード
                 completion(.success(decodedResponse)) // 成功結果を返す
             } catch {
