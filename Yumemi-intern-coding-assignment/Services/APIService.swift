@@ -13,7 +13,7 @@ class APIService {
     private init() {}
     
     func sendInfo(input: PersonalRecord, completion: @escaping (Result<FortuneResponse, Error>) -> Void) {
-        var updatedInput = input
+        let updatedInput = input
         
         let url = URL(string: "https://ios-junior-engineer-codecheck-snefnyqv2q-an.a.run.app/my_fortune")! // リクエストURL
         var request = URLRequest(url: url)
@@ -21,26 +21,14 @@ class APIService {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type") // ヘッダーにコンテンツタイプを設定
         request.addValue("v1", forHTTPHeaderField: "API-Version") // ヘッダーにAPIバージョンを設定
         
-        // リクエストボディを作成
-        let body: [String: Any] = [
-            "name": updatedInput.name,
-            "birthday": [
-                "year": updatedInput.birthday.year,
-                "month": updatedInput.birthday.month,
-                "day": updatedInput.birthday.day
-            ],
-            "blood_type": updatedInput.bloodType.rawValue,
-            "today": [
-                "year": Calendar.current.component(.year, from: Date()),
-                "month": Calendar.current.component(.month, from: Date()),
-                "day": Calendar.current.component(.day, from: Date())
-            ]
-        ]
+        // JSONエンコーダーを作成
+        let encoder = JSONEncoder()
         
-        // JSONシリアライズを試行
+        // inputをJSONにシリアライズを試行
         do {
-            print("Request Body: \(body)") // デバッグ用にボディを出力
-            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
+            let jsonData = try encoder.encode(updatedInput)
+            print("Request Body: \(String(data: jsonData, encoding: .utf8) ?? "")") // デバッグ用にボディを出力
+            request.httpBody = jsonData
         } catch {
             print("JSON Serialization Error: \(error.localizedDescription)") // エラーを出力
             completion(.failure(error)) // シリアライズエラーを返す

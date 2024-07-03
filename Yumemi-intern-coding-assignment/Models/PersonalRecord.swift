@@ -11,7 +11,7 @@ struct PersonalRecord: Decodable, Encodable {
     var name: String
     var birthday: YearMonthDay
     var bloodType: BloodType
-    var today: String
+    var today: YearMonthDay
     
     struct YearMonthDay: Decodable, Encodable {
         var year: Int
@@ -40,11 +40,15 @@ struct PersonalRecord: Decodable, Encodable {
     }
     
     // イニシャライザ
-    init(name: String = "", year: Int = 0, month: Int = 0, day: Int = 0, bloodType: BloodType = .a, today: String = "") {
+    init(name: String = "", year: Int = 0, month: Int = 0, day: Int = 0, bloodType: BloodType = .a) {
         self.name = name
         self.birthday = YearMonthDay(year: year, month: month, day: day)
         self.bloodType = bloodType
-        self.today = today
+        
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: currentDate)
+        self.today = YearMonthDay(year: components.year ?? 0, month: components.month ?? 0, day: components.day ?? 0)
     }
     
     // CodingKeys: JSONのキーとプロパティのマッピングを定義
