@@ -10,7 +10,7 @@ import Foundation
 struct PersonalRecord: Decodable, Encodable {
     var name: String
     var birthday: YearMonthDay
-    var blood_type: String
+    var bloodType: BloodType
     var today: String
     
     struct YearMonthDay: Decodable, Encodable {
@@ -19,11 +19,31 @@ struct PersonalRecord: Decodable, Encodable {
         var day: Int
     }
     
+    enum BloodType: String, CaseIterable, Identifiable, Codable {
+        case a
+        case b
+        case ab
+        case o
+        
+        var displayName: String {
+            switch self {
+            case .a: return "A"
+            case .b: return "B"
+            case .ab: return "AB"
+            case .o: return "O"
+            }
+        }
+        
+        var id: Self {
+            self
+        }
+    }
+    
     // イニシャライザ
-    init(name: String = "", year: Int = 0, month: Int = 0, day: Int = 0, blood_type: String = "", today: String = "") {
+    init(name: String = "", year: Int = 0, month: Int = 0, day: Int = 0, bloodType: BloodType = .a, today: String = "") {
         self.name = name
         self.birthday = YearMonthDay(year: year, month: month, day: day)
-        self.blood_type = blood_type
+        self.bloodType = bloodType
         self.today = today
     }
     
@@ -31,39 +51,7 @@ struct PersonalRecord: Decodable, Encodable {
     private enum CodingKeys: String, CodingKey {
         case name
         case birthday
-        case blood_type
+        case bloodType = "blood_type"
         case today
-    }
-}
-
-struct Birthday {
-    var year: String
-    var month: String
-    var day: String
-    
-    init(year: String = "", month: String = "", day: String = "") {
-        self.year = year
-        self.month = month
-        self.day = day
-    }
-}
-
-enum BloodType: String, CaseIterable, Identifiable {
-    case a
-    case b
-    case ab
-    case o
-    
-    var displayName: String {
-        switch self {
-        case .a: return "A"
-        case .b: return "B"
-        case .ab: return "AB"
-        case .o: return "O"
-        }
-    }
-    
-    var id: Self {
-        self
     }
 }
