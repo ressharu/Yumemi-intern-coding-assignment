@@ -12,14 +12,8 @@ class APIService {
     
     private init() {}
     
-    func sendInfo(input: PersonalRecord, birthday: Birthday, selectedBloodType: BloodType, completion: @escaping (Result<FortuneResponse, Error>) -> Void) {
+    func sendInfo(input: PersonalRecord, completion: @escaping (Result<FortuneResponse, Error>) -> Void) {
         var updatedInput = input
-        
-        // 誕生日情報を更新
-        updatedInput.birthday.year = Int(birthday.year) ?? 0
-        updatedInput.birthday.month = Int(birthday.month) ?? 0
-        updatedInput.birthday.day = Int(birthday.day) ?? 0
-        updatedInput.blood_type = selectedBloodType.displayName.lowercased()
         
         let url = URL(string: "https://ios-junior-engineer-codecheck-snefnyqv2q-an.a.run.app/my_fortune")! // リクエストURL
         var request = URLRequest(url: url)
@@ -35,7 +29,7 @@ class APIService {
                 "month": updatedInput.birthday.month,
                 "day": updatedInput.birthday.day
             ],
-            "blood_type": updatedInput.blood_type,
+            "blood_type": updatedInput.bloodType.rawValue,
             "today": [
                 "year": Calendar.current.component(.year, from: Date()),
                 "month": Calendar.current.component(.month, from: Date()),

@@ -13,10 +13,10 @@ class DataService {
     
     private init() {}
     
-    func savePersonalRecord(input: PersonalRecord, birthday: Birthday, selectedBloodType: BloodType, responseMessage: FortuneResponse, context: ModelContext) {
+    func savePersonalRecord(input: PersonalRecord, responseMessage: FortuneResponse, context: ModelContext) {
         let id: Int = UUID().hashValue
         
-        //PersonalRecordHistoryに保存
+        // PersonalRecordHistoryに保存
         let today = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         guard let year = today.year, let month = today.month, let day = today.day else {
             return
@@ -25,10 +25,10 @@ class DataService {
         let personalRecordH = PersonalRecordHistory(
             id: id,
             name: input.name,
-            year: Int(birthday.year) ?? 0,
-            month: Int(birthday.month) ?? 0,
-            day: Int(birthday.day) ?? 0,
-            bloodType: selectedBloodType.displayName,
+            year: input.birthday.year,
+            month: input.birthday.month,
+            day: input.birthday.day,
+            bloodType: input.bloodType.displayName,
             today: "\(year)-\(month)-\(day)"
         )
         
@@ -41,7 +41,7 @@ class DataService {
             print("Failed to save personal record: \(error.localizedDescription)")
         }
         
-        //FortuneResponseHistoryに保存
+        // FortuneResponseHistoryに保存
         let fortuneResponseH = FortuneResponseHistory(
             id: id,
             name: responseMessage.name,
